@@ -73,6 +73,7 @@ int arc_Alta(Arcade array[],int lenArcade,Salon list[],int lenSalon)//busca luga
 			 {
 				 //arc_CargarSoloUno(&array[lugarLibre]);
 				 arc_CargarSoloUno(&array[lugarLibre], list, lenSalon);
+				 retorno=0;
 			 }
 
 	}
