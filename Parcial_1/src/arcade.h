@@ -28,8 +28,8 @@ typedef struct{
 }Arcade;
 int arc_InciarLista(Arcade array[], int len);
 int arc_EncontrarIndexVacio(Arcade array[],int len);
-int arc_CargarSoloUno(Arcade array[]);
-int arc_Alta(Arcade array[],int len);
+//int arc_CargarSoloUno(Arcade array[]);
+//int arc_Alta(Arcade array[],int len);
 int arc_BuscarIdOcupado(Arcade array[], int len, int ID);
 int arc_DarBajaId(Arcade array[],int len,int id);
 int arc_ModificarCantidadJugadores(Arcade array[]);
@@ -39,4 +39,5 @@ void arc_ImprimirSoloUno(Arcade array);
 int arc_ImprimirTodos (Arcade array[], int len);
 void arc_ImprimirNombreJuego(Arcade array);
 void arc_ImprimirNombreJuegos(Arcade array[],int len);
+void arc_harcode(Arcade array[],int indice,int idArcade,char nacionalidad[],int tipoSonido,int cantidadJugadores,int capacidadMaximaFichas,char nombreJuego[],int isEmpty,int idSalon);
 #endif /* ARCADE_H_ */

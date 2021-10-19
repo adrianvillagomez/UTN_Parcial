@@ -7,12 +7,12 @@
 #include "arcade.h"
 #include <stdio.h>
 #include "UTN.h"
-static int getNewId(void);
+/*static int getNewId(void);
 static int getNewId(void)
 {
-	static int contador=0;
+	static int contador=3;
 	return contador++;
-}
+}*/
 int arc_InciarLista(Arcade array[], int len)
 {
     int i;
@@ -30,7 +30,7 @@ int arc_InciarLista(Arcade array[], int len)
     }
     return banderaTodoBien;
 }
-int arc_CargarSoloUno(Arcade array[])
+/*int arc_CargarSoloUno(Arcade array[])
 {
 	int rtn=-1;
 	char nacionalidadAux[50];
@@ -67,8 +67,8 @@ int arc_CargarSoloUno(Arcade array[])
 
 	}
 	return rtn;
-}
-int arc_Alta(Arcade array[],int len)//busca lugar libre y carga los display
+}*/
+/*int arc_Alta(Arcade array[],int len)//busca lugar libre y carga los display
 {
 	int retorno=-1;
 	int lugarLibre;
@@ -85,7 +85,7 @@ int arc_Alta(Arcade array[],int len)//busca lugar libre y carga los display
 
 	}
 	return retorno;
-}
+}*/
 
 int arc_EncontrarIndexVacio(Arcade array[],int len)//busca el primer lugar libre
 {
@@ -106,8 +106,8 @@ int arc_EncontrarIndexVacio(Arcade array[],int len)//busca el primer lugar libre
 }
 void arc_ImprimirSoloUno(Arcade array)
 {
-			printf("%s Tipo de sonido:%d  Cantidad de jugadores:%d Capacidad maximas de fichas: %d Nombre del juego:%s ID:%d Estado:%d \n",array.nacionalidad,array.tipoDeSonido
-					,array.cantidadDeJugadores,array.capacidadMaximaFichas,array.nombreJuego,array.idArcade,array.isEmpty);
+			printf("%s Tipo de sonido:%d  Cantidad de jugadores:%d Capacidad maximas de fichas: %d Nombre del juego:%s ID:%d Estado:%d Pertenece al ID salon: %d \n",array.nacionalidad,array.tipoDeSonido
+					,array.cantidadDeJugadores,array.capacidadMaximaFichas,array.nombreJuego,array.idArcade,array.isEmpty,array.idSalon);
 }
 int arc_ImprimirTodos (Arcade array[], int len)
 {
@@ -206,7 +206,7 @@ int arc_ModificarNombreJuego(Arcade array[])
 	char nombreJuegoAux[63];
 	if(array!=NULL)
 	{
-		if(utn_getText(nombreJuegoAux, 63, "/*Modificacion*/Ingrese nombre del juego a reemplazar : ", "Dato invalido", 2)==0)
+		if(utn_getText(nombreJuegoAux, 63, "/*Modificacion*/Ingrese nombre del juego: ", "Dato invalido", 2)==0)
 		{
 			strncpy(array->nombreJuego,nombreJuegoAux,sizeof(array->nombreJuego));
 		}
@@ -238,7 +238,8 @@ int arc_ModificacionVerificada(Arcade array[],int len)
 								 rtn=0;
 							 }else
 							 {
-								 arc_ImprimirNombreJuegos(array, len);//imprime lista se solo nombre de juegos ya cargados
+								 printf("Listado de los nombre de los juegos ya cargados en el sistema\n");
+								 arc_ImprimirNombreJuegos(array, len);//imprime lista de solo nombre de juegos ya cargados
 								 arc_ModificarNombreJuego(&array[indexAmodificar]);
 								 rtn=0;
 							 }
@@ -248,8 +249,29 @@ int arc_ModificacionVerificada(Arcade array[],int len)
 	}
 		return rtn;
 }
-
-
+/*
+ *typedef struct{
+	int idArcade;
+	int isEmpty;
+	char nacionalidad[50];
+	int tipoDeSonido;
+	int cantidadDeJugadores;
+	int capacidadMaximaFichas;
+	int idSalon;
+	char nombreJuego[63];
+}Arcade;
+ */
+void arc_harcode(Arcade array[],int indice,int idArcade,char nacionalidad[],int tipoSonido,int cantidadJugadores,int capacidadMaximaFichas,char nombreJuego[],int isEmpty,int idSalon)
+{
+	array[indice].idArcade=idArcade;
+	strncpy(array[indice].nacionalidad,nacionalidad,sizeof(array[indice].nacionalidad));
+	strncpy(array[indice].nombreJuego,nombreJuego,sizeof(array[indice].nombreJuego));
+	array[indice].tipoDeSonido=tipoSonido;
+	array[indice].cantidadDeJugadores=cantidadJugadores;
+	array[indice].capacidadMaximaFichas=capacidadMaximaFichas;
+	array[indice].isEmpty=isEmpty;
+	array[indice].idSalon=idSalon;
+}
 
 
 

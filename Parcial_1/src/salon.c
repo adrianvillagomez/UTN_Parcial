@@ -120,7 +120,7 @@ int sal_ImprimirTodos (Salon array[], int len)
 	}
 	return rtn;
 }
-int sal_BuscarIdOcupado(Salon array[], int len, int ID) {
+/*int sal_BuscarIdOcupado(Salon array[], int len, int ID) {
 	int retorno = -1;//error
 	int i;
 
@@ -157,7 +157,7 @@ int sal_DarBajaId(Salon array[],int len,int id)
 
 	return rtn;
 
-}
+}*/
 /*
  * int idSalon;
 	int isEmpty;
