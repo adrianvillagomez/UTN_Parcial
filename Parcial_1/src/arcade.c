@@ -106,7 +106,7 @@ int arc_EncontrarIndexVacio(Arcade array[],int len)//busca el primer lugar libre
 }
 void arc_ImprimirSoloUno(Arcade array)
 {
-			printf("%s Tipo de sonido:%d  Cantidad de jugadores:%d Capacidad maximas de fichas: %d Nombre del juego:%s ID:%d Estado:%d Pertenece al ID salon: %d \n",array.nacionalidad,array.tipoDeSonido
+			printf("%s Tipo de sonido:%d  Cantidad de jugadores:%d Capacidad maximas de fichas: %d Nombre del juego:%s IDARCADE:%d Estado:%d Pertenece al ID salon: %d \n",array.nacionalidad,array.tipoDeSonido
 					,array.cantidadDeJugadores,array.capacidadMaximaFichas,array.nombreJuego,array.idArcade,array.isEmpty,array.idSalon);
 }
 int arc_ImprimirTodos (Arcade array[], int len)
@@ -123,6 +123,35 @@ int arc_ImprimirTodos (Arcade array[], int len)
 				rtn=1;
 			}
 
+		}
+	}
+	return rtn;
+}
+int arc_ImprimirJuegos(Arcade array[],int lenArcade)
+{
+	int rtn=-1;
+	int flag;
+	if(array!=NULL && lenArcade > 0)
+	{
+		for(int i =0;i<lenArcade;i++)//index 0
+		{
+			if(array[i].isEmpty==OCUPADO)//verifico si el index este ocupado
+			{
+				flag=0;//seteo bandera
+				//for i+1
+				for(int j=i+1;j<lenArcade;j++)// index i+1
+				{
+					if(strcmp(array[i].nombreJuego,array[j].nombreJuego)==0)//0 si son cadenas iguales
+					{
+						flag=1;//flag 1 no imprime nada
+					}
+				}
+				//for i+1
+				if(flag==0)
+				{
+					printf("IDARCADE:%d NOMBRE DE JUEGOS SIN REPETIR:%s\n",array[i].idArcade,array[i].nombreJuego);
+				}
+			}
 		}
 	}
 	return rtn;

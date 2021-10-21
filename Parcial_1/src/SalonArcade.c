@@ -10,7 +10,7 @@
 static int getNewId(void);
 static int getNewId(void)
 {
-	static int contador=3;
+	static int contador=5;
 	return contador++;
 }
 int arc_CargarSoloUno(Arcade array[],Salon list[],int lenSalon)

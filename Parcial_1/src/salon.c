@@ -10,7 +10,7 @@
 static int getNewId(void);
 static int getNewId(void)
 {
-	static int contador=3;
+	static int contador=5;
 	return contador++;
 }
 int sal_InciarLista(Salon array[], int len)
@@ -120,7 +120,8 @@ int sal_ImprimirTodos (Salon array[], int len)
 	}
 	return rtn;
 }
-/*int sal_BuscarIdOcupado(Salon array[], int len, int ID) {
+/*int sal_BuscarIdOcupado(Salon array[], int len, int ID)
+{
 	int retorno = -1;//error
 	int i;
 
@@ -130,7 +131,8 @@ int sal_ImprimirTodos (Salon array[], int len)
 		//RECORRO TODO EL ARRAY
 		for (i = 0; i < len; i++) {
 			//BUSCO QUE ESTE "OCUPADO" Y QUE CONCIDA EL ID QUE ESTOY BUSCANDO
-			if (array[i].idSalon == ID && array[i].isEmpty == OCUPADO) {
+			if (array[i].idSalon == ID && array[i].isEmpty == OCUPADO)
+			{
 				//SI ENCONTRE EL ID
 				//DEVUELVO EL INDEX DE DONDE ESTA EL ID BUSCADO Y SALGO
 				retorno = i;
@@ -141,6 +143,7 @@ int sal_ImprimirTodos (Salon array[], int len)
 
 	return retorno;
 }
+
 int sal_DarBajaId(Salon array[],int len,int id)
 {
 	int rtn=-1;
@@ -158,6 +161,7 @@ int sal_DarBajaId(Salon array[],int len,int id)
 	return rtn;
 
 }*/
+
 /*
  * int idSalon;
 	int isEmpty;
